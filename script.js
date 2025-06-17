@@ -75,9 +75,6 @@ reset.addEventListener("click", () => {
 });
 
 
-<<<<<<< HEAD
-    
-=======
 function darkenColor(hex, percent) {
     // Remove # if present
     hex = hex.replace(/^#/, '');
@@ -103,4 +100,3 @@ function rgbToHex(rgb) {
     return "#" + result.map(x => x.toString(16).padStart(2, '0')).join('');
 }
     
->>>>>>> 3dc6a05200f0601bd97b1f360ed1b5c658aa56ce
