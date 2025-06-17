@@ -19,7 +19,8 @@ draw(16);
 
 // function to color pixel
 function color(square) {
-    square.classList.add("colored-black");
+    square.classList.add("colored")
+    square.style.backgroundColor = getRandomColor();
     return;
 }
 
@@ -32,12 +33,25 @@ document.body.addEventListener("mouseup", () => {
     mouseDown = false;
 });
 container.addEventListener("mouseover", (event) => {
-    if (mouseDown) {
+    if (!mouseDown) {
+        return;
+    }
+    if (event.target.classList.contains("colored")) {
+        const rgb = event.target.style.backgroundColor;
+        const hex = rgbToHex(rgb);
+        event.target.style.backgroundColor = darkenColor(hex, 0.2);
+    } else {
         color(event.target);
     }
 });
 container.addEventListener("mousedown", (event) => {
-    color(event.target);
+    if (event.target.classList.contains("colored")) {
+        const rgb = event.target.style.backgroundColor;
+        const hex = rgbToHex(rgb);
+        event.target.style.backgroundColor = darkenColor(hex, 0.2);
+    } else {
+        color(event.target);
+    }
 });
 
 // add reset function to reset button
@@ -51,7 +65,7 @@ reset.addEventListener("click", () => {
 
     pixelCount = Math.round(parseInt(pixelCount));
     if (pixelCount > 128) {
-        pixelCount == 128;
+        pixelCount = 128;
     }
     if (pixelCount <= 0) {
         pixelCount = 1;
