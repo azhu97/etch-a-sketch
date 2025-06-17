@@ -1,9 +1,19 @@
 body {
+    background-color: beige;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
+
+.left {
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .container {
+    border: 1px solid;
+    flex-shrink: 0;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -16,7 +26,19 @@ body {
 
 .square {
     box-sizing: border-box;
-    border: 1px solid;
-    flex: 1 0 calc(100% / 128);
+    flex: 1 0 calc(100% / 16);
+    background-color: white;
+}
+
+.colored-black {
+    background-color: black;
+}
+
+button {
+    margin-right: 300px;
+    padding: 20px;
+    font-size: 50px;
+    border-radius: 5px;
+    font-family: Verdana, sans-serif;
 }
 
